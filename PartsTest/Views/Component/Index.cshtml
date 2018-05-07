@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <base href="/">
+    
+</head>
+
+<h2>Component Info</h2>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/css/styles.css" rel="stylesheet" />
+
+
+<body ng-app="ApplicationModule">
+    <div class="btn btn-default" > <a href="showComponents"> Show Components </a></div>
+    <div class="btn btn-default"> <a href="addComponent"> Add Component </a></div>
+
+    <div ng-view class="top10"></div>
+
+    
+</body>
+
+@section scripts{
+
+    <script type="text/javascript" src="@Url.Content("~/Scripts/angular.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/angular-route.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/angular-messages.min.js")"></script>
+
+    <script type="text/javascript" src="@Url.Content("~/Content/js/Module.js")"></script>
+    <script src="~/Content/js/Services.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/js/ShowComponentsController.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/js/AddComponentController.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/js/EditComponentController.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/js/DeleteComponentController.js")"></script>
+}

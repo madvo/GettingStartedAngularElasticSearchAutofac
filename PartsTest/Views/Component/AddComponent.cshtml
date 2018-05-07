@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Add Component";
+}
+<h2>Add Component</h2>
+<div class="container">
+    <form name=>
+
+        @*<div class="form-group col-md-8">
+            <div class="col-md-2">
+                <label for="Id">Id:</label>
+            </div>
+            <div class="col-md-6">
+                <input type="text" ng-model="Id" class="form-control" />
+            </div>
+        </div>*@
+        <div class="form-group col-md-8">
+            <div class="col-md-2">
+                <label for="Name">Name: </label>
+            </div>
+            <div class="col-md-6">
+                <input type="text" name="Name" ng-model="Name" class="form-control" required/>              
+            </div>
+        </div>
+        <div class="form-group col-md-8">
+            <div class="col-md-2">
+                <label for="Type">Type: </label>
+            </div>
+            <div class="col-md-6">
+                <input type="text" ng-model="Type" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group col-md-8">
+            <div class="col-md-2">
+                <label for="Price">Price: </label>
+            </div>
+            <div class="col-md-6">
+                <input type="text" ng-model="Price" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group col-md-8">
+            <div class="col-md-2">
+                <label for="Country">Country: </label>
+            </div>
+            <div class="col-md-6">
+                <input type="text" ng-model="Country" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group col-md-8">
+            <div class="col-md-2">
+                <label for="DueDate">DueDate: </label>
+            </div>
+            <div class="col-md-6">
+                <input type="date" ng-model="DueDate" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group col-md-8">
+            <div class="col-md-2">
+                <input class="btn btn-primary" type="button" value="Save" ng-click="save()" />
+            </div>
+        </div>
+
+    </form>
+</div>
+
+
+<div class="error">{{error}}</div>
