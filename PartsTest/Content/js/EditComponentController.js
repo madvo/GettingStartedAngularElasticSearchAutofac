@@ -1,9 +1,9 @@
-﻿app.controller("EditComponentController", function ($scope, $location, $route, ShareData, SinglePageCRUDService) {
+﻿app.controller("EditComponentController", function ($scope, $location, $route, ShareData, CRUDService) {
 
     getComponent();
     function getComponent() {
 
-        var promiseGetComponent = SinglePageCRUDService.getComponent(ShareData.value);
+        var promiseGetComponent = CRUDService.getComponent(ShareData.value);
         promiseGetComponent.then(function (pl) {
             $scope.Component = pl.data;
         },
@@ -23,11 +23,11 @@
             Country: $scope.Component.Country,
             DueDate: $scope.Component.DueDate
         };
-        var validation = SinglePageCRUDService.validate(Component);
+        var validation = CRUDService.validate(Component);
 
         //validate before saving
         if (validation === "") {
-        var promisePutComponent = SinglePageCRUDService.put($scope.Component.Id, Component);
+        var promisePutComponent = CRUDService.put($scope.Component.Id, Component);
         promisePutComponent.then(function (pl) {
           
             $location.path("/showComponents");

@@ -1,4 +1,4 @@
-﻿app.controller('ShowComponentsController', function ($scope, $location, $timeout, $route, SinglePageCRUDService, ShareData) {
+﻿app.controller('ShowComponentsController', function ($scope, $location, $timeout, $route, CRUDService, ShareData) {
 
 
     loadRecords();
@@ -6,7 +6,7 @@
     //Function to Load all Components Records.   
     function loadRecords() {
         
-        var promiseGetComponents = SinglePageCRUDService.getComponents();
+        var promiseGetComponents = CRUDService.getComponents();
 
         promiseGetComponents.then(function (response) {
         $scope.Components = response.data;

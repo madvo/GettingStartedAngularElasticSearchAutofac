@@ -11,20 +11,16 @@
                 <tr>
                     <th>Name</th>
                     <th>Type</th>
-                    <th>Price</th>
-                    <th>Country</th>
-                    <th>DueDate</th>
+                    <th>Price</th>              
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="componentTableRow" ng-repeat="Com in Components" ng-click="editComponent(Com.Id)">
 
-                    <td>{{Com.Name}}
+                    <td>{{Com.Name}}</td>
                     <td>{{Com.Type}}</td>
-                    <td>{{Com.Price}}</td>
-                    <td>{{Com.Country}}</td>
-                    <td>{{Com.DueDate | date: "yyyy-MM-dd"}}</td>
+                    <td>{{Com.Price}}</td>          
                     <td ng-click="$event.stopPropagation()"><a ng-click="deleteComponent(Com.Id)">Delete</a></td>
                 </tr>
             </tbody>

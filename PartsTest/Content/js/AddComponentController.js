@@ -1,4 +1,4 @@
-﻿app.controller('AddComponentController', function ($scope, $location, $route, SinglePageCRUDService) {
+﻿app.controller('AddComponentController', function ($scope, $location, $route, CRUDService) {
     $scope.Id = 0;
    //save component data
     $scope.save = function () {
@@ -11,11 +11,11 @@
             Country: $scope.Country,
             DueDate: $scope.DueDate
         };
-        var validation = SinglePageCRUDService.validate(Component);
+        var validation = CRUDService.validate(Component);
 
         //validate before saving
         if (validation ==="") {
-            var promisePost = SinglePageCRUDService.post(Component);
+            var promisePost = CRUDService.post(Component);
 
             promisePost.then(function (pl) {
                 

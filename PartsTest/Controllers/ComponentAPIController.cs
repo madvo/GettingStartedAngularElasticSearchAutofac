@@ -30,11 +30,10 @@ namespace PartsTest.Controllers
         /// </summary>
         /// <param name="ComponentDTO"></param>
         /// <returns></returns>
-        [HttpPost]
-        //[ResponseType((typeof(ComponentDTO)))]
+        [HttpPost]       
         public IHttpActionResult CreateComponentDTO(ComponentDTO ComponentDTO)
         {
-            Response _res = new Response();
+            Response _response = new Response();
 
             try
             {
@@ -44,8 +43,8 @@ namespace PartsTest.Controllers
             }
             catch (Exception ex)
             {
-                _res.IsSuccess = false;
-                _res.ErrorMessage = ex;
+                _response.IsSuccess = false;
+                _response.ErrorMessage = ex;
                 return InternalServerError(new ApplicationException("Something went wrong in this request. internal exception: " + ex.Message));
 
             }
@@ -58,7 +57,7 @@ namespace PartsTest.Controllers
         [HttpGet]
         public IHttpActionResult GetAllComponents()
         {
-            Response _res = new Response();
+            Response _response = new Response();
 
             try
             {
@@ -68,8 +67,8 @@ namespace PartsTest.Controllers
             }
             catch (Exception ex)
             {
-                _res.IsSuccess = false;
-                _res.ErrorMessage = ex;
+                _response.IsSuccess = false;
+                _response.ErrorMessage = ex;
                 return InternalServerError(new ApplicationException("Something went wrong in this request. internal exception: " + ex.Message));
             }
         }
@@ -80,10 +79,9 @@ namespace PartsTest.Controllers
         /// <param name="id">id of the element</param>
         /// <returns></returns>
         [HttpGet]
-        //[ResponseType(typeof(ComponentDTO))]
         public IHttpActionResult GetComponentDTOById(string id)
         {
-            Response _res = new Response();
+            Response _response = new Response();
 
             ComponentDTO component = new ComponentDTO();
             try
@@ -97,8 +95,8 @@ namespace PartsTest.Controllers
             }
             catch (Exception ex)
             {
-                _res.IsSuccess = false;
-                _res.ErrorMessage = ex;
+                _response.IsSuccess = false;
+                _response.ErrorMessage = ex;
                 return InternalServerError(new ApplicationException("Something went wrong in this request. internal exception: " + ex.Message));
             }
             return Ok(component);
@@ -110,10 +108,9 @@ namespace PartsTest.Controllers
         /// <param name="id">id of the element</param>
         /// <returns></returns>
         [HttpDelete]
-        //[ResponseType(typeof(void))]
         public IHttpActionResult DeleteComponentDTO(string id)
         {
-            Response _res = new Response();
+            Response _response = new Response();
 
             try
             {
@@ -123,14 +120,14 @@ namespace PartsTest.Controllers
                     return NotFound();
                 }
                 IDeleteResponse resp = _ComponentDTORepo.Delete(id);
-                _res.IsSuccess = true;
-                return Ok<Response>(_res);
+                _response.IsSuccess = true;
+                return Ok<Response>(_response);
             }
 
             catch (Exception ex)
             {
-                _res.IsSuccess = false;
-                _res.ErrorMessage = ex;
+                _response.IsSuccess = false;
+                _response.ErrorMessage = ex;
                 return InternalServerError(new ApplicationException("Something went wrong in this request. internal exception: " + ex.Message));
             }
 
@@ -143,10 +140,9 @@ namespace PartsTest.Controllers
         /// <param name="component"></param>
         /// <returns></returns>
         [HttpPut]
-        //[ResponseType(typeof(void))]
         public IHttpActionResult PutEmployeeInfo(string id, ComponentDTO component)
         {
-            Response _res = new Response();
+            Response _response = new Response();
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -159,13 +155,13 @@ namespace PartsTest.Controllers
             try
             {
                 _ComponentDTORepo.Update(id, component);
-                _res.IsSuccess = true;
-                return Ok<Response>(_res);
+                _response.IsSuccess = true;
+                return Ok<Response>(_response);
             }
             catch (Exception ex)
             {
-                _res.IsSuccess = false;
-                _res.ErrorMessage = ex;
+                _response.IsSuccess = false;
+                _response.ErrorMessage = ex;
                 return InternalServerError(new ApplicationException("Something went wrong in this request. internal exception: " + ex.Message));
 
             }
