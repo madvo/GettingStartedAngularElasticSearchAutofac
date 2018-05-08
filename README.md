@@ -1,8 +1,13 @@
 # GettingStartedAngularElasticSearchAutofac V0.1
-Feature testing project for a web application based on Autofac, ElasticSearch and Autofac.
+Demo project consisting of a "Single Page Application" that uses a documental database as persistence layer.
 
 ## Main Features:
-  - MVC6 CRUD on elastic search database. 
-  - Integration using autofac. 
-
+  - Angular SPA CRUD.
+  - ElasticSearch database.
+  - Integration of modules using Autofac.
+  - Eventual consistency, meant for high I/O throughput.
+  
 ## Latest changes:
+  - CRUD working properly.
+  - ElasticSearch optimization for  better consistency. 
+  - Code Cleanup.
