@@ -13,6 +13,6 @@ Demo project consisting of a "Single Page Application" that uses a documental da
   - Code Cleanup.
   
   ### Running ElasticSearch:
-  - Extract elasticsearch-<version>.zip
+  - Extract elasticsearch-6.2.4.zip
   - From the folder where the database is located run bin\elasticsearch.bat
 
