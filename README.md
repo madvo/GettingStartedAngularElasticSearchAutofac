@@ -1,4 +1,4 @@
-# GettingStartedAngularElasticSearchAutofac V0.1
+# GettingStartedAngularElasticSearchAutofac V0.2
 Demo project consisting of a "Single Page Application" that uses a documental database as persistence layer.
 
 ### Main Features:
@@ -12,8 +12,8 @@ Demo project consisting of a "Single Page Application" that uses a documental da
   - ElasticSearch optimization for  better consistency. 
   - Code Cleanup.
   
-### Running the application:
+## Running the application:
   - Extract elasticsearch-6.2.4.zip on a folder in your system.
   - Execute bin\elasticsearch.bat from that folder.
-  - Open solucion with Visual Studio (2017 Enterprise recommended) and run application.
+  - Open solution with Visual Studio (2017 Enterprise recommended) and run application.
 
