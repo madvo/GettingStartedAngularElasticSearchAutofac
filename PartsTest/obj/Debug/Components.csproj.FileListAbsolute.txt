@@ -192,7 +192,7 @@ C:\Users\mdvorovaya\source\repos\PartsTest\PartsTest\bin\es\System.Web.Razor.res
 C:\Users\mdvorovaya\source\repos\PartsTest\PartsTest\bin\es\System.Web.WebPages.resources.dll
 C:\Users\mdvorovaya\source\repos\PartsTest\PartsTest\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\mdvorovaya\source\repos\PartsTest\PartsTest\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\mdvorovaya\source\repos\PartsTest\PartsTest\obj\Debug\Components.csprojResolveAssemblyReference.cache
 C:\Users\mdvorovaya\source\repos\PartsTest\PartsTest\obj\Debug\Components.csproj.CoreCompileInputs.cache
 C:\Users\mdvorovaya\source\repos\PartsTest\PartsTest\obj\Debug\PartsTest.dll
 C:\Users\mdvorovaya\source\repos\PartsTest\PartsTest\obj\Debug\PartsTest.pdb
+C:\Users\mdvorovaya\source\repos\PartsTest\PartsTest\obj\Debug\Components.csprojResolveAssemblyReference.cache

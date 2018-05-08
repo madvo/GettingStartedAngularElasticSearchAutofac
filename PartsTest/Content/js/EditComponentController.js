@@ -1,4 +1,4 @@
-﻿app.controller("EditComponentController", function ($scope, $location, $route, ShareData, SinglePageCRUDService, SafeApply) {
+﻿app.controller("EditComponentController", function ($scope, $location, $route, ShareData, SinglePageCRUDService) {
 
     getComponent();
     function getComponent() {
@@ -31,8 +31,6 @@
         promisePutComponent.then(function (pl) {
           
             $location.path("/showComponents");
-            //$route.reload();
-            //SafeApply($scope);
 
         },
             function (errorPl) {

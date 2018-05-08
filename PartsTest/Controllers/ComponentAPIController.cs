@@ -1,5 +1,6 @@
 ﻿using Nest;
 using PartsTest.DTO;
+using PartsTest.Helpers;
 using PartsTest.Repositories;
 using System;
 using System.Collections.Generic;
@@ -15,13 +16,12 @@ namespace PartsTest.Controllers
     public class ComponentAPIController : ApiController
     {
 
-        private IBaseRepository<ComponentDTO, string> _ComponentDTORepo=null;
+        private IBaseRepository<ComponentDTO, string> _ComponentDTORepo = null;
 
         public ComponentAPIController(IBaseRepository<ComponentDTO, string> repositoryBase)
 
         {
-            _ComponentDTORepo = repositoryBase;          
-
+            _ComponentDTORepo = repositoryBase;
         }
 
 
@@ -31,32 +31,25 @@ namespace PartsTest.Controllers
         /// <param name="ComponentDTO"></param>
         /// <returns></returns>
         [HttpPost]
-        [ResponseType((typeof(ComponentDTO)))]
+        //[ResponseType((typeof(ComponentDTO)))]
         public IHttpActionResult CreateComponentDTO(ComponentDTO ComponentDTO)
         {
-  
-            var result = _ComponentDTORepo.Insert(ComponentDTO);
+            Response _res = new Response();
 
-            return Ok(result);
+            try
+            {
+                var result = _ComponentDTORepo.Insert(ComponentDTO);
+                return Ok(result);
+
+            }
+            catch (Exception ex)
+            {
+                _res.IsSuccess = false;
+                _res.ErrorMessage = ex;
+                return InternalServerError(new ApplicationException("Something went wrong in this request. internal exception: " + ex.Message));
+
+            }
         }
-
-
-        ///// <summary>
-        ///// Retrieves all Components from ElasticDB
-        ///// </summary>
-        ///// <returns></returns>
-        //[HttpGet]
-        //public async Task<IHttpActionResult> GetAllComponents()
-        //{
-
-        //    var t1 = Task.Run(() => _ComponentDTORepo.GetAll().OrderBy(a => a.Id));
-
-        //    await Task.FromResult(t1);
-
-        //    var result = t1.Result;
-
-        //    return Ok(result); ;
-        //}
 
         /// <summary>
         /// Retrieves all Components from ElasticDB
@@ -65,46 +58,63 @@ namespace PartsTest.Controllers
         [HttpGet]
         public IHttpActionResult GetAllComponents()
         {
-            var result = _ComponentDTORepo.GetAll().OrderBy(a=>a.Name);
-            
-            return Ok(result); ;
+            Response _res = new Response();
+
+            try
+            {
+                var result = _ComponentDTORepo.GetAll().OrderBy(a => a.Name);
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                _res.IsSuccess = false;
+                _res.ErrorMessage = ex;
+                return InternalServerError(new ApplicationException("Something went wrong in this request. internal exception: " + ex.Message));
+            }
         }
+
         /// <summary>
         /// Retrieves ComponentDTO by Id
         /// </summary>
         /// <param name="id">id of the element</param>
         /// <returns></returns>
         [HttpGet]
-        [ResponseType(typeof(ComponentDTO))]
+        //[ResponseType(typeof(ComponentDTO))]
         public IHttpActionResult GetComponentDTOById(string id)
         {
-            string result = "";
+            Response _res = new Response();
+
             ComponentDTO component = new ComponentDTO();
             try
             {
-                 component = _ComponentDTORepo.GetById(id);
+                component = _ComponentDTORepo.GetById(id);
+
                 if (component == null)
                 {
                     return NotFound();
                 }
-                result = "ok";
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
-                result = "ko";
-                throw ex;
+                _res.IsSuccess = false;
+                _res.ErrorMessage = ex;
+                return InternalServerError(new ApplicationException("Something went wrong in this request. internal exception: " + ex.Message));
             }
             return Ok(component);
         }
+
         /// <summary>
         /// Deletes register in the ElasticDB
         /// </summary>
         /// <param name="id">id of the element</param>
         /// <returns></returns>
         [HttpDelete]
-        [ResponseType(typeof(string))]
+        //[ResponseType(typeof(void))]
         public IHttpActionResult DeleteComponentDTO(string id)
         {
-            string result = "";
+            Response _res = new Response();
+
             try
             {
                 ComponentDTO component = _ComponentDTORepo.GetById(id);
@@ -112,16 +122,20 @@ namespace PartsTest.Controllers
                 {
                     return NotFound();
                 }
-                IDeleteResponse resp= _ComponentDTORepo.Delete(id);
-                result = "ok";
+                IDeleteResponse resp = _ComponentDTORepo.Delete(id);
+                _res.IsSuccess = true;
+                return Ok<Response>(_res);
             }
-            catch(Exception ex)
+
+            catch (Exception ex)
             {
-                result = "ko";
-                throw ex;
+                _res.IsSuccess = false;
+                _res.ErrorMessage = ex;
+                return InternalServerError(new ApplicationException("Something went wrong in this request. internal exception: " + ex.Message));
             }
-            return Ok(result);
+
         }
+
         /// <summary>
         /// Updates component in the ElasticDB
         /// </summary>
@@ -129,9 +143,10 @@ namespace PartsTest.Controllers
         /// <param name="component"></param>
         /// <returns></returns>
         [HttpPut]
-        [ResponseType(typeof(void))]
+        //[ResponseType(typeof(void))]
         public IHttpActionResult PutEmployeeInfo(string id, ComponentDTO component)
         {
+            Response _res = new Response();
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -141,17 +156,20 @@ namespace PartsTest.Controllers
             {
                 return BadRequest();
             }
-
             try
             {
                 _ComponentDTORepo.Update(id, component);
+                _res.IsSuccess = true;
+                return Ok<Response>(_res);
             }
             catch (Exception ex)
             {
-                throw ex;
+                _res.IsSuccess = false;
+                _res.ErrorMessage = ex;
+                return InternalServerError(new ApplicationException("Something went wrong in this request. internal exception: " + ex.Message));
+
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
         }
 
 

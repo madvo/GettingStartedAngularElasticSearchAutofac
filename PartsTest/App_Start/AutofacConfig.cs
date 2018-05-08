@@ -30,7 +30,7 @@ namespace PartsTest.Autofac
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly()); //builder.RegisterApiControllers(Assembly.GetExecutingAssembly()); //Register WebApi Controllers
             
             //Register any other components required by your code
-            builder.RegisterGeneric(typeof(RepositoryBase<,>)).As(typeof(IBaseRepository<,>)).InstancePerRequest();
+            builder.RegisterGeneric(typeof(BaseRepository<,>)).As(typeof(IBaseRepository<,>)).InstancePerRequest();
       
             //builder.RegisterType<ComponentController>().InstancePerRequest();
             //builder.RegisterType<ComponentAPIController>().InstancePerRequest();

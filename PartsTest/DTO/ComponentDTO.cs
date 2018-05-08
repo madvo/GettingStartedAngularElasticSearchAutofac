@@ -7,6 +7,7 @@ using System.Web;
 namespace PartsTest.DTO
 {
     [ElasticIndexDetails("components", "Component_Info")]
+    [ElasticsearchType(Name = "Component_Info", IdProperty = "Id")]
     public class ComponentDTO:EntityDTO
     {
         //название, цена, артикул, страна изготовления, срок службы        

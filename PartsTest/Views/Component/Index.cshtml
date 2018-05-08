@@ -5,28 +5,37 @@
 }
 <head>
     <base href="/">
-    
+
 </head>
 
-<h2>Component Info</h2>
+
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 <link href="~/Content/css/styles.css" rel="stylesheet" />
 
 
 <body ng-app="ApplicationModule">
-    <div class="btn btn-default" > <a href="showComponents"> Show Components </a></div>
-    <div class="btn btn-default"> <a href="addComponent"> Add Component </a></div>
+    <div class="container">
+        <div class="jumbotron">         
+                <h2>Component Info</h2>
+        </div>
 
-    <div ng-view class="top10"></div>
+        <div class="row top10">
+            <div class="col-md-2"> <a href="showComponents"> Show Components </a></div>
+            <div class="col-md-2"> <a href="addComponent"> Add Component </a></div>        
+        </div>
 
-    
+        <div class="row">
+            <hr />
+            <div ng-view class="top10"></div>
+        </div>
+    </div>
 </body>
 
 @section scripts{
 
     <script type="text/javascript" src="@Url.Content("~/Scripts/angular.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/angular-route.min.js")"></script>
-<script type="text/javascript" src="@Url.Content("~/Scripts/angular-messages.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/angular-messages.min.js")"></script>
 
     <script type="text/javascript" src="@Url.Content("~/Content/js/Module.js")"></script>
     <script src="~/Content/js/Services.js"></script>

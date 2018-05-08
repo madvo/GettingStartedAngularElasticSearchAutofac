@@ -1,4 +1,4 @@
-﻿app.controller('ShowComponentsController', function ($scope, $location, $timeout, $route, SinglePageCRUDService, ShareData, SafeApply) {
+﻿app.controller('ShowComponentsController', function ($scope, $location, $timeout, $route, SinglePageCRUDService, ShareData) {
 
 
     loadRecords();
@@ -10,24 +10,13 @@
 
         promiseGetComponents.then(function (response) {
         $scope.Components = response.data;
-        //console.log(response.data);
-        //console.log(response);
-       
+  
         },        
             function (errorPl) {
                 $scope.error = 'failure loading Component', errorPl;
             });   
     }
 
-    //$scope.positive = function (name) {
-
-    //    $scope.showHover = true;
-    //    $scope.tooltipText = name;
-    //}   
-
-    //$scope.negative = function (name) {
-    //    $scope.showHover = false;
-    //}
 
     //Method to route to the addComponent
     $scope.addComponent = function () {

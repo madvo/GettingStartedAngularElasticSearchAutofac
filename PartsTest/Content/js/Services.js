@@ -1,4 +1,4 @@
-﻿app.service("SinglePageCRUDService", function ($http, $q) {
+﻿app.service("SinglePageCRUDService", function ($http) {
 
     //Function to read all component data
     this.getComponents = function () {

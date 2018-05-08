@@ -17,3 +17,9 @@
     border: 1px solid transparent;
     border-radius: .25rem;
 }
+
+.half-rule {
+    margin-left: 0;
+    text-align: left;
+    width: 50%;
+}

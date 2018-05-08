@@ -1,4 +1,4 @@
-﻿app.controller("DeleteComponentController", function ($scope, $location, $route, ShareData, SinglePageCRUDService, SafeApply) {
+﻿app.controller("DeleteComponentController", function ($scope, $location, $route, ShareData, SinglePageCRUDService) {
 
     getComponent();
     function getComponent() {
@@ -17,9 +17,7 @@
         var promiseDeleteComponent = SinglePageCRUDService.delete(ShareData.value);
 
             $location.path("/showComponents");
-       
-            //$route.reload();
-            //SafeApply($scope);
+  
         },
             function (errorPl) {
                 $scope.error = 'failure loading Component', errorPl;

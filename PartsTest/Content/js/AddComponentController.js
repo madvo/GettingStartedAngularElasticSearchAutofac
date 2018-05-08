@@ -1,4 +1,4 @@
-﻿app.controller('AddComponentController', function ($scope, $location, $route, SinglePageCRUDService, SafeApply) {
+﻿app.controller('AddComponentController', function ($scope, $location, $route, SinglePageCRUDService) {
     $scope.Id = 0;
    //save component data
     $scope.save = function () {
@@ -20,9 +20,6 @@
             promisePost.then(function (pl) {
                 
                 $location.path("/showComponents");
-           
-                //$route.reload();
-                //SafeApply($scope);
             },
                 function (errorPl) {
                     $scope.error = 'failure loading Component', errorPl;

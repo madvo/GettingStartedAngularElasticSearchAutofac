@@ -11,11 +11,39 @@ namespace PartsTest.Repositories
 {
     public interface IBaseRepository<TEntity, TIdentifier> where TEntity : EntityDTO
     {
-
+        /// <summary>
+        /// deletes an item from the db
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         IDeleteResponse Delete(TIdentifier id);
-        IUpdateResponse<TEntity> Update(TIdentifier id, TEntity component);
+
+        /// <summary>
+        /// updates an item 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        IUpdateResponse<TEntity> Update(TIdentifier id, TEntity entity);
+
+        /// <summary>
+        /// gets entity by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         TEntity GetById(TIdentifier id);
-        string Insert(TEntity doc);
+
+        /// <summary>
+        /// inserts an entity
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        string Insert(TEntity data);
+
+        /// <summary>
+        /// gets a list of entities
+        /// </summary>
+        /// <returns></returns>
         List<TEntity> GetAll();
     }
 }

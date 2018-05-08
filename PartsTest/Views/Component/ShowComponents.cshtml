@@ -1,9 +1,8 @@
 ﻿<div class="container">
   
-    <h2>List of Components</h2>
+    <h3>List of Components</h3>
 
-    @*<div class="alert alert-info top10" role="alert" ng-show=showHover ng-init="showHover=true">To edit component {{tooltipText}} click on the row</div></td>*@
-    <div class="alert alert-info top10" role="alert" >To edit component click on the table row. </div>
+    <div class="col-md-4 alert alert-info top10" role="alert" >To edit component click on the table row. </div>
 
     <div class="top10">
    
@@ -25,7 +24,7 @@
                     <td>{{Com.Type}}</td>
                     <td>{{Com.Price}}</td>
                     <td>{{Com.Country}}</td>
-                    <td>{{Com.DueDate | date: 'yyyy-MM-dd'}}</td>
+                    <td>{{Com.DueDate | date: "yyyy-MM-dd"}}</td>
                     <td ng-click="$event.stopPropagation()"><a ng-click="deleteComponent(Com.Id)">Delete</a></td>
                 </tr>
             </tbody>

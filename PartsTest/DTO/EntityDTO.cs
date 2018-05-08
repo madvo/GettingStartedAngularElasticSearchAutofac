@@ -6,7 +6,7 @@ using System.Web;
 
 namespace PartsTest.DTO
 {
-    [ElasticsearchType(Name = "Component_Info", IdProperty = "Id")]
+   //[ElasticsearchType(Name = "Component_Info", IdProperty = "Id")]
     public class EntityDTO
     {
         [Text]
