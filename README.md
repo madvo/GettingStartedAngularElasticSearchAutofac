@@ -11,3 +11,8 @@ Demo project consisting of a "Single Page Application" that uses a documental da
   - CRUD working properly.
   - ElasticSearch optimization for  better consistency. 
   - Code Cleanup.
+  
+  ### Running Elasticsearch:
+  - Extract elasticsearch-<version>.zip
+  - From the folder where the database is located run bin\elasticsearch.bat
+
