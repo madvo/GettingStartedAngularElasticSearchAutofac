@@ -12,7 +12,7 @@ Demo project consisting of a "Single Page Application" that uses a documental da
   - ElasticSearch optimization for  better consistency. 
   - Code Cleanup.
   
-  ### Running ElasticSearch:
+### Running the application:
   - Extract elasticsearch-6.2.4.zip on a folder in your system.
   - Execute bin\elasticsearch.bat from that folder.
   - Open solucion with Visual Studio (2017 Enterprise recommended) and run application.
